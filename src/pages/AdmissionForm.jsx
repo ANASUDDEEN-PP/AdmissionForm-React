@@ -14,7 +14,6 @@ const AdmissionForm = () => {
     Mobile: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +26,6 @@ const AdmissionForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   
-    setSubmitted(true);
   
     if (
       formData.Student_Name === "" ||
@@ -42,6 +40,7 @@ const AdmissionForm = () => {
       alert("Fill all fields compulsorily.");
     } else {
       alert("Your Data Stored...");
+      console.log(formData)
       
       setFormData({
         Student_Name: "",
@@ -61,14 +60,14 @@ const AdmissionForm = () => {
     <div className="form-container"> 
       <h2>Student Admission Form</h2>
         <form onSubmit={handleSubmit}>
-        <input type="text" name="Student_Name" placeholder="Full Name" value={formData.Student_Name} onChange={handleChange} required />
-        <input type="date" name="Date_of_Birth" value={formData.Date_of_Birth} onChange={handleChange} required />
-        <input type="text" name="Admission_Number" placeholder="Admission Number" value={formData.Admission_Number} onChange={handleChange} required />
-        <input type="text" name="Place" placeholder="Place" value={formData.Place} onChange={handleChange} required />
-        <input type="text" name="District" placeholder="District" value={formData.District} onChange={handleChange} required />
-        <input type="text" name="State" placeholder="State" value={formData.State} onChange={handleChange} required />
-        <input type="number" name="Pincode" placeholder="Pincode" value={formData.Pincode} onChange={handleChange} required />
-        <input type="tel" name="Mobile" placeholder="Mobile Number" value={formData.Mobile} onChange={handleChange} required />
+        <input type="text" name="Student_Name" placeholder="Full Name" value={formData.Student_Name} onChange={handleChange}  />
+        <input type="date" name="Date_of_Birth" value={formData.Date_of_Birth} onChange={handleChange}  />
+        <input type="text" name="Admission_Number" placeholder="Admission Number" value={formData.Admission_Number} onChange={handleChange}  />
+        <input type="text" name="Place" placeholder="Place" value={formData.Place} onChange={handleChange}  />
+        <input type="text" name="District" placeholder="District" value={formData.District} onChange={handleChange}  />
+        <input type="text" name="State" placeholder="State" value={formData.State} onChange={handleChange}  />
+        <input type="number" name="Pincode" placeholder="Pincode" value={formData.Pincode} onChange={handleChange}  />
+        <input type="tel" name="Mobile" placeholder="Mobile Number" value={formData.Mobile} onChange={handleChange}  />
         <button type="submit">Submit</button>
         < a href="/Success">Click Here to AdmissionForm Updation</a>
       </form>
