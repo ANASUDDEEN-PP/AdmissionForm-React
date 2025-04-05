@@ -1,13 +1,21 @@
 import React from "react";  
-import AdmissionForm from "./pages/AdmissionForm";
+import { BrowserRouter as Router,Routes,Route} from "react-router-dom"
   
+import AdmissionForm from "./pages/AdmissionForm";
+import Success from "./pages/Success";
 
 function App() {
   return (
-    <div className="container">
+    <Router>
+      <div className="container">
       <h1>Welcome to Admission Portal</h1>
-      <AdmissionForm />
-    </div>
+        <Routes>
+          <Route path="/" element={<AdmissionForm/>} />
+          <Route path="/Success" element={<Success/>} />
+         </Routes>
+     </div>
+    </Router>
+    
   );
 }
 
