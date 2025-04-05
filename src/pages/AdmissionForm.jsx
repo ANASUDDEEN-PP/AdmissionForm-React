@@ -26,28 +26,41 @@ const AdmissionForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  
     setSubmitted(true);
-    console.log("Form Submitted", formData);
-
-    alert("Admission Form Submitted Successfully!");
-
-    setFormData({
-      Student_Name: "",
-      Date_of_Birth: "",
-      Admission_Number: "",
-      Place: "",
-      District: "",
-      State: "",
-      Pincode: "",
-      Mobile: "",
-    });
+  
+    if (
+      formData.Student_Name === "" ||
+      formData.Date_of_Birth === "" ||
+      formData.Admission_Number === "" ||
+      formData.Place === "" ||
+      formData.District === "" ||
+      formData.State === "" ||
+      formData.Pincode === "" ||
+      formData.Mobile === ""
+    ) {
+      alert("Fill all fields compulsorily.");
+    } else {
+      alert("Your Data Stored...");
+      
+      setFormData({
+        Student_Name: "",
+        Date_of_Birth: "",
+        Admission_Number: "",
+        Place: "",
+        District: "",
+        State: "",
+        Pincode: "",
+        Mobile: "",
+      });
+    }
   };
+  
 
   return (
     <div className="form-container"> 
       <h2>Student Admission Form</h2>
-      {submitted && <p className="success-message">Form Submitted Successfully!</p>}
-      <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
         <input type="text" name="Student_Name" placeholder="Full Name" value={formData.Student_Name} onChange={handleChange} required />
         <input type="date" name="Date_of_Birth" value={formData.Date_of_Birth} onChange={handleChange} required />
         <input type="text" name="Admission_Number" placeholder="Admission Number" value={formData.Admission_Number} onChange={handleChange} required />
@@ -57,6 +70,7 @@ const AdmissionForm = () => {
         <input type="number" name="Pincode" placeholder="Pincode" value={formData.Pincode} onChange={handleChange} required />
         <input type="tel" name="Mobile" placeholder="Mobile Number" value={formData.Mobile} onChange={handleChange} required />
         <button type="submit">Submit</button>
+        < a href="/Success">Click Here to AdmissionForm Updation</a>
       </form>
     </div>
   );
